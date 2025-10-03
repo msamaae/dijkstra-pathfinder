@@ -1,0 +1,52 @@
+import React from "react";
+import { Play, Trash2, RotateCcw } from "lucide-react";
+import Button from './Button';
+
+const ActionButtons = ({ onVisualize, onResetGrid, onClearWalls, onClearAll, isDisabled }) => {
+  return (
+    <div className="mb-6">
+      <label className="block text-sm font-bold text-lime-400 mb-3 uppercase tracking-wider font-mono drop-shadow-[0_0_3px_#a3e635]">
+        Execute Actions
+      </label>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <Button
+          variant="primary"
+          disabled={isDisabled}
+          onClick={onVisualize}
+          icon={Play}
+        >
+          Visualize
+        </Button>
+
+        <Button
+          variant="warning"
+          disabled={isDisabled}
+          onClick={onResetGrid}
+          icon={RotateCcw}
+        >
+          Reset Path
+        </Button>
+
+        <Button
+          variant="secondary"
+          disabled={isDisabled}
+          onClick={onClearWalls}
+          icon={Trash2}
+        >
+          Clear Walls
+        </Button>
+
+        <Button
+          variant="danger"
+          disabled={isDisabled}
+          onClick={onClearAll}
+          icon={Trash2}
+        >
+          Clear All
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+export default ActionButtons;
