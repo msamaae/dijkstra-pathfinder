@@ -1,5 +1,8 @@
 import React, { useState, useCallback, useEffect } from "react";
-import Node from "./components/Node";
+import Header from "./components/Header";
+import PortfolioLink from "./components/PortfolioLink";
+import Footer from "./components/Footer";
+import Grid from "./components/Grid";
 import ControlPanel from "./components/ControlPanel";
 import { dijkstra } from "./utils/dijkstra";
 import {
@@ -174,8 +177,6 @@ const DijkstraVisualizer = () => {
     setIsVisualizing(false);
   }, [grid, startNode, endNode, isVisualizing, animationSpeed]);
 
-  // ==================== RENDER ====================
-
   return (
     <div
       className="min-h-screen p-4 md:p-8 relative overflow-hidden"
@@ -185,32 +186,8 @@ const DijkstraVisualizer = () => {
       }}
     >
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Portfolio Link - Top Right */}
-        <div className="absolute top-0 right-0 z-20">
-          <a
-            href="https://msamaae.netlify.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-lime-500 text-gray-900 border-2 border-lime-600 rounded-none shadow-[0_4px_0_0_#4d7c0f] font-extrabold text-xs uppercase tracking-wider transition-all duration-100 hover:shadow-[0_6px_0_0_#4d7c0f] hover:translate-y-[-2px] active:shadow-none active:translate-y-[4px]"
-          >
-            <span className="sm:inline">Main Menu</span>
-          </a>
-        </div>
-
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1
-            className="text-2xl md:text-4xl font-extrabold mb-4 text-lime-400 drop-shadow-[0_0_8px_#a3e635] uppercase tracking-widest"
-            style={{ fontFamily: 'monospace', lineHeight: '1.5' }}
-          >
-            DIJKSTRA'S
-            <br />
-            PATHFINDER v3.1
-          </h1>
-          <p className="text-white/90 text-xs md:text-sm uppercase tracking-wider font-mono">
-            ◄ Initialize Grid Configuration Below ►
-          </p>
-        </div>
+        <PortfolioLink />
+        <Header />
 
         <ControlPanel
           mode={mode}
@@ -224,35 +201,14 @@ const DijkstraVisualizer = () => {
           isVisualizing={isVisualizing}
         />
 
-        <div className="bg-gray-900 border-4 border-lime-400 shadow-[10px_10px_0_0_#a3e635] p-6 rounded-none flex items-center justify-center">
-          <div
-            className="grid gap-1 w-full"
-            style={{
-              gridTemplateColumns: `repeat(${COLS}, 1fr)`,
-              maxWidth: 'min(100%, calc(100vh - 400px))',
-              aspectRatio: `${COLS} / ${ROWS}`,
-            }}
-          >
-            {grid.map((row, rowIdx) =>
-              row.map((node, nodeIdx) => (
-                <Node
-                  key={`${rowIdx}-${nodeIdx}`}
-                  node={node}
-                  onMouseDown={handleMouseDown}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseUp={handleMouseUp}
-                />
-              ))
-            )}
-          </div>
-        </div>
+        <Grid
+          grid={grid}
+          onMouseDown={handleMouseDown}
+          onMouseEnter={handleMouseEnter}
+          onMouseUp={handleMouseUp}
+        />
 
-        {/* Footer */}
-        <div className="text-center mt-8">
-          <p className="text-lime-400 text-xs uppercase tracking-wider font-mono">
-            ★ System Ready - All Coordinates Indexed from [0,0] ★
-          </p>
-        </div>
+        <Footer />
       </div>
 
       {/* CRT/Scanline effect overlay - placed last to render on top */}
