@@ -1,83 +1,62 @@
-# Dijkstra's Algorithm Pathfinding Visualizer
+# Dijkstra's Pathfinding Visualizer
 
-A portfolio-grade, interactive visualization of Dijkstra's shortest path algorithm built with React, Tailwind CSS, and Lucide Icons.
+An interactive visualization of Dijkstra's shortest path algorithm that I built to better understand how pathfinding algorithms work. It's a fun way to see the algorithm in action and experiment with different grid layouts.
 
-## Features
+## What it does
 
-- 🎨 **Interactive Grid**: 15x25 responsive grid with three interaction modes
-- 🎯 **Three Modes**: Draw walls, set start position, set end position
-- 🚀 **Animated Visualization**: Watch the algorithm explore nodes and find the shortest path
-- ⚡ **Configurable Speed**: Choose from 5 animation speeds (5ms to 100ms)
-- 📱 **Mobile Responsive**: Touch-friendly design for all screen sizes
-- 🎨 **Modern UI**: Beautiful gradient backgrounds and smooth animations
+- **Interactive grid**: Create walls by clicking and dragging, set start/end points
+- **Live visualization**: Watch Dijkstra's algorithm find the shortest path step by step
+- **Speed control**: Adjust animation speed to see the algorithm work at your own pace
+- **Easy to use**: Simple controls for drawing walls, setting start/end positions, and clearing the grid
+- **Responsive design**: Works on desktop and mobile devices
 
-## Getting Started
+## Try it out
 
-### Prerequisites
+You'll need Node.js installed on your machine.
 
-- Node.js (v16 or higher)
-- npm or yarn
-
-### Installation
-
-1. Install dependencies:
+1. Clone this repo and install dependencies:
 ```bash
 npm install
 ```
 
-### Running the App
-
-Start the development server:
+2. Start the development server:
 ```bash
 npm run dev
 ```
 
-The app will automatically open in your browser at `http://localhost:3000`
+3. Open your browser and go to the URL shown in your terminal (usually `http://localhost:5173`)
 
-### Build for Production
+## Building for production
 
-Create an optimized production build:
 ```bash
 npm run build
-```
-
-Preview the production build:
-```bash
 npm run preview
 ```
 
-## How to Use
+## How it works
 
-1. **Select a Mode**:
-   - **Draw Walls**: Click or drag to create obstacles
-   - **Set Start**: Click to reposition the start node (green)
-   - **Set End**: Click to reposition the end node (red)
+1. **Draw walls**: Click and drag to create obstacles in the grid
+2. **Set start/end points**: Use the mode selector to place your start (green) and end (red) nodes
+3. **Choose speed**: Pick how fast you want to see the algorithm run
+4. **Hit visualize**: Watch Dijkstra's algorithm explore and find the shortest path
+5. **Reset as needed**: Clear the path, walls, or start fresh
 
-2. **Choose Animation Speed**: Select from the dropdown (Very Fast to Very Slow)
+The algorithm shows you exactly how it explores each node and why it chooses certain paths over others.
 
-3. **Visualize**: Click the "Visualize" button to watch Dijkstra's algorithm find the shortest path
+## Built with
 
-4. **Reset/Clear**:
-   - **Reset Path**: Clears visited nodes and path (keeps walls)
-   - **Clear Walls**: Removes all walls
-   - **Clear All**: Complete reset to initial state
+- React with hooks for the UI
+- Vite for fast development and building
+- Tailwind CSS for styling
+- Lucide React for icons
 
-## Tech Stack
+## About Dijkstra's Algorithm
 
-- **React** - UI framework with hooks
-- **Vite** - Fast build tool and dev server
-- **Tailwind CSS** - Utility-first CSS framework
-- **Lucide React** - Beautiful icon library
+Dijkstra's algorithm finds the shortest path between two points by always exploring the closest unvisited node first. This visualizer helps you see:
 
-## Algorithm
+- How it explores nodes in order of distance from the start
+- Why it guarantees the shortest path
+- How obstacles affect the pathfinding
 
-Dijkstra's algorithm is a graph search algorithm that finds the shortest path between nodes. This visualizer demonstrates:
-
-- How the algorithm explores nodes by distance
-- The final shortest path from start to end
-- How walls affect pathfinding
-
-## License
-
-MIT
+It's a great way to understand one of the most fundamental algorithms in computer science!
 
