@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Dark background -->
+  <rect width="64" height="64" fill="#1A233A"/>
+
+  <!-- Grid pattern -->
+  <g stroke="#4a5568" stroke-width="1" opacity="0.4">
+    <line x1="16" y1="0" x2="16" y2="64"/>
+    <line x1="32" y1="0" x2="32" y2="64"/>
+    <line x1="48" y1="0" x2="48" y2="64"/>
+    <line x1="0" y1="16" x2="64" y2="16"/>
+    <line x1="0" y1="32" x2="64" y2="32"/>
+    <line x1="0" y1="48" x2="64" y2="48"/>
+  </g>
+
+  <!-- Start point (green circle with glow) -->
+  <circle cx="16" cy="32" r="6" fill="#22c55e" opacity="0.5"/>
+  <circle cx="16" cy="32" r="4" fill="#a3e635"/>
+
+  <!-- End point (red target) -->
+  <circle cx="48" cy="32" r="6" fill="#dc2626" opacity="0.5"/>
+  <circle cx="48" cy="32" r="4" fill="#ef4444"/>
+
+  <!-- Border for definition -->
+  <rect width="64" height="64" fill="none" stroke="#a3e635" stroke-width="2" opacity="0.3"/>
+</svg>
+

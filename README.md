@@ -27,13 +27,6 @@ npm run dev
 
 3. Open your browser and go to the URL shown in your terminal (usually `http://localhost:5173`)
 
-## Building for production
-
-```bash
-npm run build
-npm run preview
-```
-
 ## How it works
 
 1. **Choose algorithm**: Select between Dijkstra's, A* search, or DFS
