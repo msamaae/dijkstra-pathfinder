@@ -29,3 +29,17 @@ export const ANIMATION_SPEEDS = {
 };
 
 export const DEFAULT_ANIMATION_SPEED = ANIMATION_SPEEDS.FAST;
+
+export const ALGORITHMS = {
+  DIJKSTRA: "dijkstra",
+  A_STAR: "astar",
+  DFS: "dfs",
+};
+
+export const ALGORITHM_NAMES = {
+  [ALGORITHMS.DIJKSTRA]: "Dijkstra",
+  [ALGORITHMS.A_STAR]: "A* Search",
+  [ALGORITHMS.DFS]: "Depth-First Search (DFS)",
+};
+
+export const DEFAULT_ALGORITHM = ALGORITHMS.DIJKSTRA;

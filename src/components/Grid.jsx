@@ -1,6 +1,6 @@
 import React from 'react';
 import Node from './Node';
-import { GRID_CONFIG } from '../constants/constants';
+import { GRID_CONFIG } from '../constants';
 
 const Grid = ({
   grid,

@@ -1,7 +1,7 @@
-import DijkstraVisualizer from './DijkstraVisualizer'
+import PathfinderVisualizer from './PathfinderVisualizer'
 
 function App() {
-  return <DijkstraVisualizer />
+  return <PathfinderVisualizer />
 }
 
 export default App

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ANIMATION_SPEEDS } from '../constants/constants';
+import { ANIMATION_SPEEDS } from '../constants';
 
 const SpeedSelector = ({ animationSpeed, setAnimationSpeed, isDisabled }) => {
   return (

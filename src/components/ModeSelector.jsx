@@ -1,6 +1,6 @@
 import React from 'react';
 import { Target, Flag, Square } from 'lucide-react';
-import { MODES } from '../constants/constants';
+import { MODES } from '../constants';
 import Button from './Button';
 
 const ModeSelector = ({ mode, setMode, isDisabled }) => {

@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import Grid from "./components/Grid";
 import ControlPanel from "./components/ControlPanel";
 import { dijkstra } from "./utils/dijkstra";
+import { aStar } from "./utils/aStar";
+import { dfs } from "./utils/dfs";
 import {
   generateInitialGrid,
   toggleWall as toggleWallHelper,
@@ -13,7 +15,14 @@ import {
   clearWalls as clearWallsHelper,
   resetVisitedAndPath,
 } from "./utils/gridHelpers";
-import { GRID_CONFIG, DEFAULT_POSITIONS, MODES, DEFAULT_ANIMATION_SPEED } from "./constants/constants";
+import {
+  GRID_CONFIG,
+  DEFAULT_POSITIONS,
+  MODES,
+  DEFAULT_ANIMATION_SPEED,
+  ALGORITHMS,
+  DEFAULT_ALGORITHM
+} from "./constants";
 
 const DijkstraVisualizer = () => {
   const { ROWS, COLS } = GRID_CONFIG;
@@ -21,6 +30,7 @@ const DijkstraVisualizer = () => {
 
   const [grid, setGrid] = useState(() => generateInitialGrid(ROWS, COLS, START.row, START.col, END.row, END.col));
   const [mode, setMode] = useState(MODES.WALL);
+  const [algorithm, setAlgorithm] = useState(DEFAULT_ALGORITHM);
   const [isMousePressed, setIsMousePressed] = useState(false);
   const [isVisualizing, setIsVisualizing] = useState(false);
   const [animationSpeed, setAnimationSpeed] = useState(DEFAULT_ANIMATION_SPEED);
@@ -123,7 +133,7 @@ const DijkstraVisualizer = () => {
 
   // ==================== VISUALIZATION ====================
 
-  const visualizeDijkstra = useCallback(async () => {
+  const visualizeAlgorithm = useCallback(async () => {
     if (isVisualizing) return;
 
     setIsVisualizing(true);
@@ -142,13 +152,29 @@ const DijkstraVisualizer = () => {
         isVisited: false,
         previousNode: null,
         isPath: false,
+        heuristic: 0,
+        fScore: Infinity,
       }))
     );
 
     const startNodeForAlgo = algorithmGrid[startNode.row][startNode.col];
     const endNodeForAlgo = algorithmGrid[endNode.row][endNode.col];
 
-    const { visitedNodesInOrder, shortestPath } = dijkstra(algorithmGrid, startNodeForAlgo, endNodeForAlgo);
+    // Select algorithm based on current selection
+    let visitedNodesInOrder, shortestPath;
+    if (algorithm === ALGORITHMS.A_STAR) {
+      const result = aStar(algorithmGrid, startNodeForAlgo, endNodeForAlgo);
+      visitedNodesInOrder = result.visitedNodesInOrder;
+      shortestPath = result.shortestPath;
+    } else if (algorithm === ALGORITHMS.DFS) {
+      const result = dfs(algorithmGrid, startNodeForAlgo, endNodeForAlgo);
+      visitedNodesInOrder = result.visitedNodesInOrder;
+      shortestPath = result.shortestPath;
+    } else {
+      const result = dijkstra(algorithmGrid, startNodeForAlgo, endNodeForAlgo);
+      visitedNodesInOrder = result.visitedNodesInOrder;
+      shortestPath = result.shortestPath;
+    }
 
     // Animate visited nodes
     for (let i = 0; i < visitedNodesInOrder.length; i++) {
@@ -175,7 +201,7 @@ const DijkstraVisualizer = () => {
     }
 
     setIsVisualizing(false);
-  }, [grid, startNode, endNode, isVisualizing, animationSpeed]);
+  }, [grid, startNode, endNode, isVisualizing, animationSpeed, algorithm]);
 
   return (
     <div
@@ -192,9 +218,11 @@ const DijkstraVisualizer = () => {
         <ControlPanel
           mode={mode}
           setMode={setMode}
+          algorithm={algorithm}
+          setAlgorithm={setAlgorithm}
           animationSpeed={animationSpeed}
           setAnimationSpeed={setAnimationSpeed}
-          onVisualize={visualizeDijkstra}
+          onVisualize={visualizeAlgorithm}
           onResetGrid={handleResetGrid}
           onClearWalls={handleClearWalls}
           onClearAll={handleClearAll}
