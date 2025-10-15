@@ -2,6 +2,8 @@
 
 An interactive visualization of popular pathfinding algorithms that I built to better understand how different algorithms work. Compare Dijkstra's, A*, and DFS algorithms to see how they explore grids and find paths in different ways!
 
+![Pathfinder Visualizer Demo](./screenshot.png)
+
 ## What it does
 
 - **Multiple algorithms**: Choose between Dijkstra's algorithm, A* search, and Depth-First Search (DFS)
