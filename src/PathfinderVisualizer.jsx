@@ -207,8 +207,7 @@ const DijkstraVisualizer = () => {
     <div
       className="min-h-screen p-4 md:p-8 relative overflow-hidden"
       style={{
-        backgroundImage: 'linear-gradient(135deg, #1A233A 0%, #3B0068 100%)',
-        backgroundAttachment: 'fixed',
+        background: 'linear-gradient(135deg, #1A233A 0%, #3B0068 100%)',
       }}
     >
       <div className="max-w-7xl mx-auto relative z-10">
@@ -241,7 +240,7 @@ const DijkstraVisualizer = () => {
 
       {/* CRT/Scanline effect overlay - placed last to render on top */}
       <div
-        className="fixed inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background: `linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))`,

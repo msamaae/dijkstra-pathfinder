@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: '/pathfinder-visualizer/',
+  base: command === 'build' ? '/pathfinder-visualizer/' : '/',
   server: {
     port: 3000,
     open: true
@@ -11,5 +11,5 @@ export default defineConfig({
   build: {
     outDir: 'dist'
   }
-})
+}))
 

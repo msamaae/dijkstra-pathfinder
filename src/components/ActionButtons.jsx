@@ -13,7 +13,6 @@ const ActionButtons = ({ onVisualize, onResetGrid, onClearWalls, onClearAll, isD
           variant="primary"
           disabled={isDisabled}
           onClick={onVisualize}
-          icon={Play}
         >
           Visualize
         </Button>
@@ -22,7 +21,6 @@ const ActionButtons = ({ onVisualize, onResetGrid, onClearWalls, onClearAll, isD
           variant="warning"
           disabled={isDisabled}
           onClick={onResetGrid}
-          icon={RotateCcw}
         >
           Reset Path
         </Button>
@@ -31,7 +29,6 @@ const ActionButtons = ({ onVisualize, onResetGrid, onClearWalls, onClearAll, isD
           variant="secondary"
           disabled={isDisabled}
           onClick={onClearWalls}
-          icon={Trash2}
         >
           Clear Walls
         </Button>
@@ -40,7 +37,6 @@ const ActionButtons = ({ onVisualize, onResetGrid, onClearWalls, onClearAll, isD
           variant="danger"
           disabled={isDisabled}
           onClick={onClearAll}
-          icon={Trash2}
         >
           Clear All
         </Button>
