@@ -72,7 +72,7 @@ A* combines Dijkstra's approach with a heuristic function that estimates the dis
 DFS explores as far as possible along each branch before backtracking. Unlike Dijkstra's and A*, DFS does NOT guarantee the shortest path - it simply finds *a* path if one exists.
 
 **Characteristics:**
-- ⚠️ Does NOT guarantee the shortest path
+- Does NOT guarantee the shortest path
 - Uses a stack (LIFO - Last In, First Out) approach
 - Explores deep into the grid before backtracking
 - Memory efficient and fast at finding any path
